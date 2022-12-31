@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Page Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1 {font-family: "Raleway", Arial, sans-serif}
+h1 {letter-spacing: 6px}
+.w3-row-padding img {margin-bottom: 12px}
+body {
+  background-image: url('https://www.stevens.edu/_next/image?url=https%3A%2F%2Fimages.ctfassets.net%2Fmviowpldu823%2F3sTEDgAhBFASQ7hz5nj8zT%2F6a02237777a9f301e236bfcbd239bfb0%2F20220414_STEVENS_SPRING-782.jpg%3Fw%3D1200%26h%3D675%26f%3Dbottom%26q%3D80%26fit%3Dfill&w=1200&q=80');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  opacity : 5.5;
+}
+</style>
+</head>
+<body>
+
+    {% include 'header.html' %}
+
+<div class="w3-content" style="max-width:1500px">
+
+    <div class="w3-panel w3-center" style="padding:128px 16px">
+      <h1 class="w3-xxxlarge w3-light-grey" >Samuel C. Williams Library</h1>
+      <h1 class="w3-light-grey">Lost & Found Page</h1>
+        <div class="w3-padding-32">
+        <div class="w3-bar w3-border">
+          <a href="/lost_post_list" class="w3-bar-item w3-button w3-light-grey"><b>Lost Something?</b></a>
+        </div>
+      </div>
+      </div>
+    
+
+    
+{% include 'footer.html' %}
+
+</body>
+

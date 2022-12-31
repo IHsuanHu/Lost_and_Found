@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register Page Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,h1 {font-family: "Raleway", Arial, sans-serif}
+    h1 {letter-spacing: 6px}
+    .w3-row-padding img {margin-bottom: 12px}
+    body {
+      background-image: url("https://imageio.forbes.com/specials-images/imageserve/559d7d8ce4b05c2c3431c151/0x0.jpg?format=jpg&crop=416,416,x0,y0,safe&height=200&width=200&fit=bounds");
+      background-color: rgba(252, 252, 252, 0.962);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: top;
+      opacity: .85;
+    }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+
+{% load crispy_forms_tags %}
+<div class="content-section">
+    <form method = "POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Report Lost Item</legend>
+            {{ form|crispy}}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Post</button>
+        </div>
+    </form>
+</div>
+
+{% include 'footer.html' %}
+
+</body>

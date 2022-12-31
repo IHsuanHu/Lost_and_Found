@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Page Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body,h1 {font-family: "Raleway", Arial, sans-serif}
+    h1 {letter-spacing: 6px}
+    .w3-row-padding img {margin-bottom: 12px}
+    body {
+      background-image: url("https://imageio.forbes.com/specials-images/imageserve/559d7d8ce4b05c2c3431c151/0x0.jpg?format=jpg&crop=416,416,x0,y0,safe&height=200&width=200&fit=bounds");
+      background-color: rgba(252, 252, 252, 0.962);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: top;
+      opacity: .85;
+    }
+</style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+{% if user.is_authenticated %}
+  <div>
+    <a class="w3-bar-item w3-button w3-black w3-text-red w3-center" href="{% url 'post_create' %}">Report Lost Item</a>
+  </div>
+
+  {% for post in Lost_Posts %}
+  <hr>
+  <article class="media content-section">
+    <h3> <img width="40" height="40" src="{{ post.author.profile.image.url }}"> Posted by {{ post.author }}</h3>
+    <div class="media-body">
+      <div class="article-metadata">
+        <h6 class="text-muted"> on {{ post.date_posted|date:"F d, Y" }}</h6>
+      </div>
+      <h3>Lost Item :&nbsp;&nbsp; <a class="article-title w3-light-grey" href="{% url 'post_detail' post.id %}">{{ post.Lost_item }}</a></h3>
+      <h3>Description:</h3>
+      <p class="article-content w3-grey">{{ post.description }}</p> 
+    </div>
+    <hr>
+    <br/>
+  </article>
+  {% endfor %}
+
+  {% include 'footer.html' %}
+
+{% else %}
+  <div>
+    <h3 class="w3-bar-item w3-button w3-light-grey" ><b>You are not logged in!! Try Logging in again</b></h3>
+  </div>
+  <div>
+    <a href="{%url 'login' %}" class="w3-bar-item w3-button w3-light-grey w3-large w3-center"><b>Log In</b></a>
+  </div>
+{% endif %}
+</body>
